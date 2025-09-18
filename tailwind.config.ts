@@ -57,6 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        /* Luxury Color Extensions */
+        "luxury-gold": "hsl(var(--luxury-gold))",
+        "luxury-midnight": "hsl(var(--luxury-midnight))",
+      },
+      fontFamily: {
+        luxury: ['Playfair Display', 'serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+      backgroundImage: {
+        "gradient-luxury": "var(--gradient-luxury)",
+        "gradient-depth": "var(--gradient-depth)",
+      },
+      boxShadow: {
+        "luxury": "var(--shadow-luxury)",
+        "depth": "var(--shadow-depth)",
+        "glow": "var(--shadow-glow)",
       },
       borderRadius: {
         lg: "var(--radius)",
