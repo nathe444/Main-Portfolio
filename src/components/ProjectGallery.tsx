@@ -67,14 +67,20 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
         {images.length > 1 && (
           <>
             <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-luxury-onyx/80 backdrop-blur-sm border border-luxury-gold/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-luxury-gold/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-luxury-onyx/90 border border-luxury-gold/30 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-luxury-gold/20 hover:border-luxury-gold/50 z-20"
             >
               <ChevronLeft className="w-5 h-5 text-luxury-gold" />
             </button>
             <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-luxury-onyx/80 backdrop-blur-sm border border-luxury-gold/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-luxury-gold/20"
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-luxury-onyx/90 border border-luxury-gold/30 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-luxury-gold/20 hover:border-luxury-gold/50 z-20"
             >
               <ChevronRight className="w-5 h-5 text-luxury-gold" />
             </button>
@@ -84,8 +90,11 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
               {images.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentIndex(index);
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 pointer-events-auto ${
                     index === currentIndex 
                       ? 'bg-luxury-gold w-6' 
                       : 'bg-luxury-gold/40 hover:bg-luxury-gold/60'
@@ -96,8 +105,7 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
           </>
         )}
 
-        {/* Glassmorphism Overlay */}
-        <div className="absolute inset-0 bg-luxury-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[1px]" />
+
       </div>
 
       {/* Lightbox Modal */}
@@ -135,14 +143,20 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
               {images.length > 1 && (
                 <>
                   <button
-                    onClick={prevLightboxImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-luxury-onyx/80 backdrop-blur-sm border border-luxury-gold/20 rounded-full flex items-center justify-center hover:bg-luxury-gold/20 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      prevLightboxImage();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-luxury-onyx/80 backdrop-blur-sm border border-luxury-gold/20 rounded-full flex items-center justify-center hover:bg-luxury-gold/20 transition-colors z-10"
                   >
                     <ChevronLeft className="w-6 h-6 text-luxury-gold" />
                   </button>
                   <button
-                    onClick={nextLightboxImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-luxury-onyx/80 backdrop-blur-sm border border-luxury-gold/20 rounded-full flex items-center justify-center hover:bg-luxury-gold/20 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      nextLightboxImage();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-luxury-onyx/80 backdrop-blur-sm border border-luxury-gold/20 rounded-full flex items-center justify-center hover:bg-luxury-gold/20 transition-colors z-10"
                   >
                     <ChevronRight className="w-6 h-6 text-luxury-gold" />
                   </button>
