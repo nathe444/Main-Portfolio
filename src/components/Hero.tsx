@@ -166,10 +166,10 @@ export default function Hero() {
           size: Math.random() * 30 + 50, // 50-80px (larger)
           rotation: Math.random() * 360,
           rotationSpeed: (Math.random() - 0.2) * 0.8, // Slower rotation
-          vx: (Math.random() - 0.4) * 0.8, // Slightly faster movement
-          vy: (Math.random() - 0.4) * 0.8,
+          vx: (Math.random() - 0.3) * 0.8, // Slightly faster movement
+          vy: (Math.random() - 0.3) * 0.8,
           skill: skillData.name,
-          opacity: Math.random() * 0.85 + 0.25, // 0.25 to 0.4 (much more subtle)
+          opacity: Math.random() * 0.3 + 0.25, // 0.25 to 0.4 (much more subtle)
           glowIntensity: Math.random() * 1 + 0.3, // 0.3 to 0.6 (reduced glow)
           depth: Math.random() * 0.6 + 0.7 // 0.7 to 1.3 (larger presence)
         });
@@ -184,28 +184,82 @@ export default function Hero() {
     return () => window.removeEventListener('resize', createSkills);
   }, []);
 
-  // Animate skills
+  // Animate skills with collision detection
   useEffect(() => {
     const animateSkills = () => {
-      setSkills(prevSkills => 
-        prevSkills.map(skill => {
-          let newX = skill.x + skill.vx;
-          let newY = skill.y + skill.vy;
+      setSkills(prevSkills => {
+        const newSkills = prevSkills.map(skill => ({
+          ...skill,
+          x: skill.x + skill.vx,
+          y: skill.y + skill.vy,
+          rotation: skill.rotation + skill.rotationSpeed
+        }));
+
+        // Check for collisions between skills
+        for (let i = 0; i < newSkills.length; i++) {
+          for (let j = i + 1; j < newSkills.length; j++) {
+            const skill1 = newSkills[i];
+            const skill2 = newSkills[j];
+            
+            const dx = skill1.x - skill2.x;
+            const dy = skill1.y - skill2.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const minDistance = (skill1.size + skill2.size) / 2;
+            
+            if (distance < minDistance) {
+              // Collision detected - calculate bounce
+              const angle = Math.atan2(dy, dx);
+              const targetX1 = skill2.x + Math.cos(angle) * minDistance;
+              const targetY1 = skill2.y + Math.sin(angle) * minDistance;
+              const targetX2 = skill1.x - Math.cos(angle) * minDistance;
+              const targetY2 = skill1.y - Math.sin(angle) * minDistance;
+              
+              // Separate overlapping skills
+              skill1.x = targetX1;
+              skill1.y = targetY1;
+              skill2.x = targetX2;
+              skill2.y = targetY2;
+              
+              // Calculate new velocities (elastic collision)
+              const v1x = skill1.vx;
+              const v1y = skill1.vy;
+              const v2x = skill2.vx;
+              const v2y = skill2.vy;
+              
+              skill1.vx = v2x * 0.8; // Add some damping
+              skill1.vy = v2y * 0.8;
+              skill2.vx = v1x * 0.8;
+              skill2.vy = v1y * 0.8;
+            }
+          }
+        }
+
+        // Handle screen edge bouncing
+        return newSkills.map(skill => {
+          let newX = skill.x;
+          let newY = skill.y;
+          let newVx = skill.vx;
+          let newVy = skill.vy;
           
-          // Wrap around screen edges
-          if (newX > window.innerWidth + skill.size) newX = -skill.size;
-          if (newX < -skill.size) newX = window.innerWidth + skill.size;
-          if (newY > window.innerHeight + skill.size) newY = -skill.size;
-          if (newY < -skill.size) newY = window.innerHeight + skill.size;
+          // Bounce off screen edges
+          if (newX <= 0 || newX >= window.innerWidth - skill.size) {
+            newVx = -newVx * 0.8; // Reverse and dampen
+            newX = Math.max(0, Math.min(window.innerWidth - skill.size, newX));
+          }
+          if (newY <= 0 || newY >= window.innerHeight - skill.size) {
+            newVy = -newVy * 0.8; // Reverse and dampen
+            newY = Math.max(0, Math.min(window.innerHeight - skill.size, newY));
+          }
           
           return {
             ...skill,
             x: newX,
             y: newY,
-            rotation: skill.rotation + skill.rotationSpeed
+            vx: newVx,
+            vy: newVy
           };
-        })
-      );
+        });
+      });
     };
     
     const interval = setInterval(animateSkills, 16); // ~60fps
