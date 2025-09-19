@@ -138,16 +138,16 @@ const Navigation = () => {
             : "bg-transparent"
         }`}
       >
-        <div className="flex items-center justify-between p-4">
+        <div className="flex items-center justify-start p-4">
           {/* Logo */}
-          <motion.div
+          {/* <motion.div
             className="font-luxury font-bold text-xl cursor-pointer"
             onClick={() => scrollToSection('#hero')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="text-luxury-gold">NM</span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Mobile Menu Button */}
           <motion.button
