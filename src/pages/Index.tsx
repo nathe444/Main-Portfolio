@@ -11,6 +11,7 @@ import CustomCursor from '@/components/CustomCursor';
 import FloatingCTA from '@/components/FloatingCTA';
 import ThemeToggle from '@/components/ThemeToggle';
 import Navigation from '@/components/Navigation';
+import ChatBot from '@/components/ChatBot';
 
 const Index = () => {
   return (
@@ -23,7 +24,8 @@ const Index = () => {
       <CustomCursor />
       <Navigation />
       <ThemeToggle />
-      <FloatingCTA />
+      {/* <FloatingCTA /> */}
+      <ChatBot />
       <Hero />
       <About />
       <Services />
