@@ -57,9 +57,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        /* Luxury Color Extensions */
+        /* Refined Luxury Color Extensions */
         "luxury-gold": "hsl(var(--luxury-gold))",
         "luxury-midnight": "hsl(var(--luxury-midnight))",
+        "pearl-grey": "hsl(var(--pearl-grey))",
+        "warm-beige": "hsl(var(--warm-beige))",
+        "elegant-off-white": "hsl(var(--elegant-off-white))",
       },
       fontFamily: {
         luxury: ['Playfair Display', 'serif'],

@@ -1,5 +1,7 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -13,8 +15,10 @@ import resortImg from '@/assets/project-resort.jpg';
 import healthcareImg from '@/assets/project-healthcare.jpg';
 import realestateImg from '@/assets/project-realestate.jpg';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const projects = {
-  "Web Applications": [
+  "Frontend": [
     {
       title: "E-commerce Platform",
       description: "Modern React-based e-commerce solution with advanced filtering, cart management, and payment integration.",
@@ -32,7 +36,25 @@ const projects = {
       demo: "#"
     }
   ],
-  "AI & Automation": [
+  "Backend": [
+    {
+      title: "Healthcare Management API",
+      description: "RESTful API with JWT authentication, real-time notifications, and HIPAA-compliant data handling.",
+      image: healthcareImg,
+      tech: ["Node.js", "Express", "PostgreSQL", "JWT"],
+      github: "#",
+      demo: "#"
+    },
+    {
+      title: "Real Estate Platform Backend",
+      description: "Scalable microservices architecture with property search, user management, and payment processing.",
+      image: realestateImg,
+      tech: ["Node.js", "Prisma", "Supabase", "Stripe"],
+      github: "#",
+      demo: "#"
+    }
+  ],
+  "AI & Automations": [
     {
       title: "SaaS AI Chatbot System",
       description: "Multi-LLM chatbot platform with Zapier integration for automated customer support workflows.",
@@ -50,20 +72,20 @@ const projects = {
       demo: "#"
     }
   ],
-  "Full-Stack Solutions": [
+  "Full-Stack": [
     {
-      title: "Healthcare Management System",
-      description: "Complete patient management solution with appointment scheduling and medical records.",
-      image: healthcareImg,
-      tech: ["React", "Node.js", "PostgreSQL", "JWT"],
+      title: "E-commerce Platform Complete",
+      description: "End-to-end e-commerce solution with inventory management, analytics dashboard, and customer portal.",
+      image: ecommerceImg,
+      tech: ["React", "Node.js", "MongoDB", "Stripe"],
       github: "#",
       demo: "#"
     },
     {
-      title: "Real Estate Platform",
-      description: "Property listing and management platform with advanced search and virtual tours.",
-      image: realestateImg,
-      tech: ["Next.js", "Prisma", "Supabase", "Maps API"],
+      title: "Project Management Suite",
+      description: "Comprehensive team collaboration platform with real-time updates, file sharing, and analytics.",
+      image: dashboardImg,
+      tech: ["React", "Node.js", "PostgreSQL", "Socket.io"],
       github: "#",
       demo: "#"
     }
@@ -71,12 +93,57 @@ const projects = {
 };
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState("Web Applications");
+  const [activeTab, setActiveTab] = useState("Frontend");
   const tabs = Object.keys(projects);
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  useEffect(() => {
+    const cards = gsap.utils.toArray('.project-card');
+    
+    cards.forEach((card: any, index) => {
+      gsap.fromTo(card, 
+        {
+          opacity: 0,
+          y: 80,
+          rotationX: 15,
+          scale: 0.95
+        },
+        {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            end: "bottom 10%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, [activeTab]);
 
   return (
-    <section id="projects" className="py-24 bg-gradient-depth">
-      <div className="container mx-auto px-6">
+    <section ref={containerRef} id="projects" className="py-24 bg-gradient-depth relative overflow-hidden">
+      <motion.div 
+        style={{ y }}
+        className="absolute inset-0 bg-gradient-luxury opacity-10"
+      />
+      
+      <div className="container mx-auto px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -138,14 +205,16 @@ export default function Projects() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="project-card"
             >
-              <Card className="card-luxury overflow-hidden group h-full hover:scale-[1.02] transition-all duration-300">
-                <div className="aspect-video bg-gradient-luxury overflow-hidden">
+              <Card className="card-luxury overflow-hidden group h-full hover:scale-[1.02] hover:shadow-glow transition-all duration-500 hover:rotate-1 hover:-translate-y-2">
+                <div className="aspect-video bg-gradient-luxury overflow-hidden relative">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-luxury-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[1px]" />
                 </div>
                 <CardContent className="p-8">
                   <h3 className="font-luxury text-2xl font-semibold mb-4">
