@@ -70,7 +70,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-luxury-onyx">
+    <section id="hero" ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-luxury-onyx">
       {/* Parallax Background */}
       <motion.div
         ref={imageRef}

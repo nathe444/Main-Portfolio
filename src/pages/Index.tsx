@@ -9,6 +9,8 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import CustomCursor from '@/components/CustomCursor';
 import FloatingCTA from '@/components/FloatingCTA';
+import ThemeToggle from '@/components/ThemeToggle';
+import Navigation from '@/components/Navigation';
 
 const Index = () => {
   return (
@@ -19,6 +21,8 @@ const Index = () => {
       transition={{ duration: 0.5 }}
     >
       <CustomCursor />
+      <Navigation />
+      <ThemeToggle />
       <FloatingCTA />
       <Hero />
       <About />
