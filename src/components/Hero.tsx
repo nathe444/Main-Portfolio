@@ -166,12 +166,12 @@ export default function Hero() {
           size: Math.random() * 30 + 50, // 50-80px (larger)
           rotation: Math.random() * 360,
           rotationSpeed: (Math.random() - 0.2) * 0.8, // Slower rotation
-          vx: (Math.random() - 0.3) * 0.8, // Slightly faster movement
-          vy: (Math.random() - 0.3) * 0.8,
+          vx: (Math.random() - 0.1) * 0.9, // Slightly faster movement
+          vy: (Math.random() - 0.1) * 0.9,
           skill: skillData.name,
-          opacity: Math.random() * 0.3 + 0.25, // 0.25 to 0.4 (much more subtle)
+          opacity: Math.random() * 0.8 + 0.25, // 0.25 to 0.4 (much more subtle)
           glowIntensity: Math.random() * 1 + 0.3, // 0.3 to 0.6 (reduced glow)
-          depth: Math.random() * 0.6 + 0.7 // 0.7 to 1.3 (larger presence)
+          depth: Math.random() * 0.7 + 0.7 // 0.7 to 1.3 (larger presence)
         });
       });
       
