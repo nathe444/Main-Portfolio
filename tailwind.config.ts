@@ -57,12 +57,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        /* Refined Luxury Color Extensions */
+        /* Dark Luxury Color Extensions */
         "luxury-gold": "hsl(var(--luxury-gold))",
-        "luxury-midnight": "hsl(var(--luxury-midnight))",
-        "pearl-grey": "hsl(var(--pearl-grey))",
+        "luxury-onyx": "hsl(var(--luxury-onyx))",
+        "platinum-grey": "hsl(var(--platinum-grey))",
         "warm-beige": "hsl(var(--warm-beige))",
-        "elegant-off-white": "hsl(var(--elegant-off-white))",
+        "soft-off-white": "hsl(var(--soft-off-white))",
       },
       fontFamily: {
         luxury: ['Playfair Display', 'serif'],

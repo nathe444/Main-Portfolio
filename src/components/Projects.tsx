@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
+import ProjectGallery from './ProjectGallery';
 
 // Import project images
 import ecommerceImg from '@/assets/project-ecommerce.jpg';
@@ -22,7 +23,11 @@ const projects = {
     {
       title: "E-commerce Platform",
       description: "Modern React-based e-commerce solution with advanced filtering, cart management, and payment integration.",
-      image: ecommerceImg,
+      images: [
+        { src: ecommerceImg, alt: "E-commerce Platform - Main View", caption: "Product catalog with advanced filtering" },
+        { src: ecommerceImg, alt: "E-commerce Platform - Cart", caption: "Shopping cart and checkout process" },
+        { src: ecommerceImg, alt: "E-commerce Platform - Dashboard", caption: "Admin dashboard with analytics" }
+      ],
       tech: ["React", "TypeScript", "Tailwind", "Stripe"],
       github: "#",
       demo: "#"
@@ -30,7 +35,10 @@ const projects = {
     {
       title: "Project Management Dashboard",
       description: "Comprehensive dashboard for team collaboration with real-time updates and analytics.",
-      image: dashboardImg,
+      images: [
+        { src: dashboardImg, alt: "Dashboard - Overview", caption: "Main dashboard with project overview" },
+        { src: dashboardImg, alt: "Dashboard - Analytics", caption: "Detailed analytics and reporting" }
+      ],
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
       github: "#",
       demo: "#"
@@ -40,7 +48,10 @@ const projects = {
     {
       title: "Healthcare Management API",
       description: "RESTful API with JWT authentication, real-time notifications, and HIPAA-compliant data handling.",
-      image: healthcareImg,
+      images: [
+        { src: healthcareImg, alt: "Healthcare API - Architecture", caption: "Microservices architecture overview" },
+        { src: healthcareImg, alt: "Healthcare API - Security", caption: "Security and authentication flow" }
+      ],
       tech: ["Node.js", "Express", "PostgreSQL", "JWT"],
       github: "#",
       demo: "#"
@@ -48,7 +59,10 @@ const projects = {
     {
       title: "Real Estate Platform Backend",
       description: "Scalable microservices architecture with property search, user management, and payment processing.",
-      image: realestateImg,
+      images: [
+        { src: realestateImg, alt: "Real Estate API - Properties", caption: "Property management system" },
+        { src: realestateImg, alt: "Real Estate API - Search", caption: "Advanced search functionality" }
+      ],
       tech: ["Node.js", "Prisma", "Supabase", "Stripe"],
       github: "#",
       demo: "#"
@@ -58,7 +72,11 @@ const projects = {
     {
       title: "SaaS AI Chatbot System",
       description: "Multi-LLM chatbot platform with Zapier integration for automated customer support workflows.",
-      image: chatbotImg,
+      images: [
+        { src: chatbotImg, alt: "AI Chatbot - Interface", caption: "Conversational AI interface" },
+        { src: chatbotImg, alt: "AI Chatbot - Analytics", caption: "Conversation analytics and insights" },
+        { src: chatbotImg, alt: "AI Chatbot - Integrations", caption: "Third-party integrations" }
+      ],
       tech: ["OpenAI", "Zapier", "n8n", "RAG"],
       github: "#",
       demo: "#"
@@ -66,7 +84,10 @@ const projects = {
     {
       title: "Kuriftu Resort AI Assistant",
       description: "Conversational AI itinerary planner for personalized travel recommendations and bookings.",
-      image: resortImg,
+      images: [
+        { src: resortImg, alt: "Resort AI - Planner", caption: "AI-powered itinerary planning" },
+        { src: resortImg, alt: "Resort AI - Recommendations", caption: "Personalized recommendations engine" }
+      ],
       tech: ["GPT-4", "RAG", "Travel API", "NLP"],
       github: "#",
       demo: "#"
@@ -76,7 +97,11 @@ const projects = {
     {
       title: "E-commerce Platform Complete",
       description: "End-to-end e-commerce solution with inventory management, analytics dashboard, and customer portal.",
-      image: ecommerceImg,
+      images: [
+        { src: ecommerceImg, alt: "Full-Stack E-commerce - Frontend", caption: "Customer-facing storefront" },
+        { src: ecommerceImg, alt: "Full-Stack E-commerce - Admin", caption: "Admin panel and inventory management" },
+        { src: ecommerceImg, alt: "Full-Stack E-commerce - Analytics", caption: "Sales analytics and reporting" }
+      ],
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
       github: "#",
       demo: "#"
@@ -84,7 +109,10 @@ const projects = {
     {
       title: "Project Management Suite",
       description: "Comprehensive team collaboration platform with real-time updates, file sharing, and analytics.",
-      image: dashboardImg,
+      images: [
+        { src: dashboardImg, alt: "Project Suite - Dashboard", caption: "Team collaboration dashboard" },
+        { src: dashboardImg, alt: "Project Suite - Files", caption: "File sharing and version control" }
+      ],
       tech: ["React", "Node.js", "PostgreSQL", "Socket.io"],
       github: "#",
       demo: "#"
@@ -208,14 +236,10 @@ export default function Projects() {
               className="project-card"
             >
               <Card className="card-luxury overflow-hidden group h-full hover:scale-[1.02] hover:shadow-glow transition-all duration-500 hover:rotate-1 hover:-translate-y-2">
-                <div className="aspect-video bg-gradient-luxury overflow-hidden relative">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-luxury-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[1px]" />
-                </div>
+                <ProjectGallery 
+                  images={project.images} 
+                  projectTitle={project.title}
+                />
                 <CardContent className="p-8">
                   <h3 className="font-luxury text-2xl font-semibold mb-4">
                     {project.title}

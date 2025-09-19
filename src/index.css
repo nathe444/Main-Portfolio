@@ -8,39 +8,39 @@
 
 @layer base {
   :root {
-    /* Refined Luxury Color Palette */
-    --background: 40 33% 98%;           /* Elegant Off-White #FAFAF8 */
-    --foreground: 0 0% 5%;              /* Deep Charcoal Black #0E0E0E */
+    /* Dark Luxury Color Palette - Awwwards Level */
+    --background: 0 0% 4%;              /* Rich Onyx Black #0A0A0A */
+    --foreground: 40 17% 97%;           /* Soft Off-White #F8F8F5 */
 
-    --card: 40 33% 98%;
-    --card-foreground: 0 0% 5%;
+    --card: 0 0% 6%;
+    --card-foreground: 40 17% 97%;
 
-    --popover: 40 33% 98%;
-    --popover-foreground: 0 0% 5%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 17% 97%;
 
-    --primary: 0 0% 5%;                 /* Deep charcoal primary */
-    --primary-foreground: 40 33% 98%;
+    --primary: 40 17% 97%;              /* Off-white primary */
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 35 15% 91%;            /* Warm Beige #EDE6DB */
-    --secondary-foreground: 0 0% 5%;
+    --secondary: 0 0% 8%;               /* Darker secondary */
+    --secondary-foreground: 40 17% 97%;
 
-    --muted: 0 0% 77%;                  /* Pearl Grey #C5C5C5 */
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 75%;                  /* Platinum Grey #BFBFBF */
+    --muted-foreground: 0 0% 65%;
 
     --accent: 45 85% 62%;               /* Champagne Gold #D4AF37 */
-    --accent-foreground: 0 0% 5%;
+    --accent-foreground: 0 0% 4%;
 
     --luxury-gold: 45 85% 62%;          /* Champagne Gold #D4AF37 */
-    --luxury-midnight: 0 0% 5%;         /* Deep Charcoal Black */
-    --pearl-grey: 0 0% 77%;             /* Pearl Grey #C5C5C5 */
-    --warm-beige: 35 15% 91%;           /* Warm Beige #EDE6DB */
-    --elegant-off-white: 40 33% 98%;    /* Elegant Off-White #FAFAF8 */
+    --luxury-onyx: 0 0% 4%;             /* Rich Onyx Black */
+    --platinum-grey: 0 0% 75%;          /* Platinum Grey #BFBFBF */
+    --warm-beige: 35 25% 87%;           /* Warm Beige #E7E1D3 */
+    --soft-off-white: 40 17% 97%;       /* Soft Off-White #F8F8F5 */
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 45 33% 97%;
+    --destructive-foreground: 40 17% 97%;
 
-    --border: 45 20% 88%;
-    --input: 45 20% 88%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 45 85% 62%;                 /* Gold focus ring */
 
     --radius: 0.75rem;
@@ -152,25 +152,26 @@
 @layer components {
   /* Luxury Button Variants */
   .btn-luxury {
-    @apply bg-gradient-to-r from-luxury-gold/10 to-luxury-gold/5 border border-luxury-gold/20 
-           text-foreground font-medium px-8 py-3 rounded-lg
-           hover:from-luxury-gold/20 hover:to-luxury-gold/10 hover:border-luxury-gold/30
-           hover:shadow-[0_0_20px_hsl(var(--luxury-gold)_/_0.2)]
+    @apply bg-gradient-to-r from-luxury-gold/20 to-luxury-gold/10 border border-luxury-gold/30 
+           text-soft-off-white font-medium px-8 py-3 rounded-lg
+           hover:from-luxury-gold/30 hover:to-luxury-gold/20 hover:border-luxury-gold/50
+           hover:shadow-[0_0_30px_hsl(var(--luxury-gold)_/_0.4)]
            transition-all duration-300 ease-out;
   }
 
   .btn-primary-luxury {
-    @apply bg-foreground text-background px-8 py-3 rounded-lg font-medium
-           hover:bg-foreground/90 hover:shadow-[0_4px_20px_hsl(var(--foreground)_/_0.25)]
+    @apply bg-luxury-gold text-luxury-onyx px-8 py-3 rounded-lg font-medium
+           hover:bg-luxury-gold/90 hover:shadow-[0_4px_30px_hsl(var(--luxury-gold)_/_0.5)]
            transition-all duration-300 ease-out;
   }
 
   /* Luxury Card */
   .card-luxury {
-    @apply bg-card/50 backdrop-blur-sm border border-luxury-gold/10 rounded-xl
-           shadow-[0_4px_20px_hsl(var(--luxury-gold)_/_0.1)]
-           hover:shadow-[0_8px_30px_hsl(var(--luxury-gold)_/_0.2)]
-           transition-all duration-300 ease-out;
+    @apply bg-card/80 backdrop-blur-md border border-luxury-gold/20 rounded-xl
+           shadow-[0_8px_32px_hsl(var(--luxury-gold)_/_0.15)]
+           hover:shadow-[0_16px_48px_hsl(var(--luxury-gold)_/_0.25)]
+           hover:border-luxury-gold/30
+           transition-all duration-500 ease-out;
   }
 
   /* Gold Accent Line */

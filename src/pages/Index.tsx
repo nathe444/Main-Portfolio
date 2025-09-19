@@ -7,15 +7,19 @@ import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import CustomCursor from '@/components/CustomCursor';
+import FloatingCTA from '@/components/FloatingCTA';
 
 const Index = () => {
   return (
     <motion.div 
-      className="min-h-screen bg-background"
+      className="min-h-screen bg-background cursor-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
+      <CustomCursor />
+      <FloatingCTA />
       <Hero />
       <About />
       <Services />
