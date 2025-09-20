@@ -10,17 +10,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
   {
-    period: "2023 - Present",
-    title: "Senior Full-Stack Developer & AI Specialist",
-    company: "Freelance (Upwork & Fiverr)",
+    period: "2024 - Present",
+    title:  " Full-Stack Developer & AI Specialist",
+    company: "Freelance (Upwork)",
     location: "Remote",
     description: "Leading complex web development and AI automation projects for global clients. Specialized in building scalable SaaS solutions with advanced AI integrations.",
     achievements: [
-      "Delivered 50+ successful projects with 98% client satisfaction",
+      "Delivered 5+ successful projects",
       "Built multi-LLM chatbot systems with RAG capabilities",
-      "Automated business workflows saving clients 40+ hours/week"
+      "Built a patient management system for a medical clinic",
     ],
-    tech: ["React", "Node.js", "OpenAI", "n8n", "Zapier"],
+    tech: ["React", "Node.js", "OpenAI", "n8n", "Langchain" , "Typescript"],
     link: "https://www.upwork.com/freelancers/~01234567890"
   },
   {
@@ -38,10 +38,10 @@ const experiences = [
     link: "#"
   },
   {
-    period: "2021 - 2022",
+    period: "2021 - present",
     title: "Full-Stack Web Developer",
-    company: "Healthcare Solutions Inc.",
-    location: "Addis Ababa, Ethiopia",
+    company: "",
+    location: "",
     description: "Built comprehensive healthcare management systems focusing on patient data security and real-time appointment scheduling.",
     achievements: [
       "Developed HIPAA-compliant patient management platform",
@@ -52,14 +52,14 @@ const experiences = [
     link: "#"
   },
   {
-    period: "2020 - 2021",
+    period: "2023-present",
     title: "Frontend Developer",
-    company: "Digital Marketing Agency",
+    company: "Bell-Bits",
     location: "Remote",
-    description: "Created high-performance e-commerce platforms and marketing websites with focus on conversion optimization.",
+    description: "Created high-performance Websites like Inventory Management System, E-commerce, and Blogging Platform.",
     achievements: [
       "Built React-based e-commerce solutions with 99.9% uptime",
-      "Improved page load speeds by 40% through optimization",
+      "Improved page load speeds by 30% through optimization",
       "Integrated advanced payment systems and analytics"
     ],
     tech: ["React", "TypeScript", "Tailwind", "Stripe"],
