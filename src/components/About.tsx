@@ -32,7 +32,7 @@ export default function About() {
                 <p className="font-body text-lg leading-relaxed text-muted-foreground mb-8">
                   I specialize in creating sophisticated digital experiences that seamlessly blend 
                   cutting-edge technology with elegant design. My expertise spans full-stack development, 
-                  AI automation, and intelligent chatbot solutions.
+                  AI automation, Generative AI and intelligent chatbot solutions.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-8">
@@ -54,6 +54,7 @@ export default function About() {
                     </h3>
                     <ul className="font-body text-muted-foreground space-y-2">
                       <li>• Node.js & Express</li>
+                      <li>• Django</li>
                       <li>• MongoDB & PostgreSQL</li>
                       <li>• n8n Automation Workflows</li>
                       <li>• RAG & Generative AI Solutions</li>
@@ -75,14 +76,14 @@ export default function About() {
                 <CardContent className="p-8">
                   <div className="text-center">
                     <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">
-                      5+
+                      3+
                     </div>
                     <p className="font-body text-sm text-muted-foreground mb-6">
                       Years Experience
                     </p>
                     
                     <div className="text-4xl font-luxury font-bold text-luxury-gold mb-2">
-                      50+
+                      10+
                     </div>
                     <p className="font-body text-sm text-muted-foreground mb-6">
                       Projects Delivered
