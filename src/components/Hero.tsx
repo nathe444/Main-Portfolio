@@ -427,26 +427,26 @@ export default function Hero() {
           transition={{ duration: 1, delay: 1.3 }}
         >
           <a 
-            href="https://github.com/natnael" 
-            className="text-platinum-grey hover:text-luxury-gold transition-colors duration-300 hover:scale-110 transform"
+            href="https://github.com/nathe444" 
+            className="text-black/60 hover:text-luxury-gold transition-colors duration-300 hover:scale-110 transform"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Github className="w-6 h-6" />
+            <Github className="w-8 h-8" />
           </a>
           <a 
-            href="https://linkedin.com/in/natnael" 
-            className="text-platinum-grey hover:text-luxury-gold transition-colors duration-300 hover:scale-110 transform"
+            href="https://www.linkedin.com/in/natnael-mulugeta-8974a930b" 
+            className="text-black/60 hover:text-luxury-gold transition-colors duration-300 hover:scale-110 transform"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Linkedin className="w-6 h-6" />
+            <Linkedin className="w-8 h-8" />
           </a>
           <a 
-            href="mailto:hello@natnael.dev" 
-            className="text-platinum-grey hover:text-luxury-gold transition-colors duration-300 hover:scale-110 transform"
+            href="mailto:natnaelm552@gmail.com" 
+            className="text-black/60 hover:text-luxury-gold transition-colors duration-300 hover:scale-110 transform"
           >
-            <Mail className="w-6 h-6" />
+            <Mail className="w-8 h-8" />
           </a>
         </motion.div>
       </motion.div>
