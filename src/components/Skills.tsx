@@ -4,11 +4,11 @@ import { Badge } from '@/components/ui/badge';
 const skillCategories = {
   "Frontend": [
     "React", "TypeScript", "JavaScript", "Tailwind CSS", "Redux Toolkit", 
-    "Next.js", "Framer Motion", "Three.js", "Responsive Design"
+    "Next.js", "Framer Motion", "Responsive Design"
   ],
   "Backend": [
     "Node.js", "Express.js", "MongoDB", "PostgreSQL", "RESTful APIs", 
-    "GraphQL", "JWT Authentication", "Server Architecture"
+    , "JWT Authentication", "Server Architecture , django"
   ],
   "AI & Automation": [
     "n8n Workflows", "RAG Implementation", "OpenAI APIs", "Langchain", 
@@ -94,7 +94,7 @@ export default function Skills() {
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="space-y-2">
               <div className="text-4xl font-luxury font-bold text-luxury-gold">
-                5+
+                3+
               </div>
               <p className="font-body text-muted-foreground">
                 Years of Experience
@@ -103,19 +103,10 @@ export default function Skills() {
             
             <div className="space-y-2">
               <div className="text-4xl font-luxury font-bold text-luxury-gold">
-                50+
+                10+
               </div>
               <p className="font-body text-muted-foreground">
                 Projects Completed
-              </p>
-            </div>
-            
-            <div className="space-y-2">
-              <div className="text-4xl font-luxury font-bold text-luxury-gold">
-                100%
-              </div>
-              <p className="font-body text-muted-foreground">
-                Client Satisfaction
               </p>
             </div>
           </div>
