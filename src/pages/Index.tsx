@@ -12,6 +12,7 @@ import FloatingCTA from '@/components/FloatingCTA';
 import ThemeToggle from '@/components/ThemeToggle';
 import Navigation from '@/components/Navigation';
 import ChatBot from '@/components/ChatBot';
+import PremiumMarquee from '@/components/HorizontalMarquee';
 
 const Index = () => {
   return (
@@ -27,6 +28,7 @@ const Index = () => {
       {/* <FloatingCTA /> */}
       <ChatBot />
       <Hero />
+      <PremiumMarquee />
       <About />
       <Services />
       <Skills />
